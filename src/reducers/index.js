@@ -1,14 +1,28 @@
-
 export const initialState = {
-}
+  id: '',
+  name: '',
+  position: '',
+  nickname: '',
+  description: ''
+};
 
-const reducer = ()=>{
-}
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_START:
+      return {};
+    case FETCH_SUCCESS:
+      return {};
+    case FETCH_FAIL:
+      return {};
+    default:
+      return state;
+  }
+};
 
 export default reducer;
 
 //Task List:
-//1. Add in the initialState needed to hold: 
+//1. Add in the initialState needed to hold:
 //      - an array of smurfs
 //      - a boolean indicating if the app is loading
 //      - error text
