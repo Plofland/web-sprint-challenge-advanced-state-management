@@ -4,18 +4,24 @@ import { getSmurf } from '../actions/index';
 
 class AddForm extends React.Component {
   state = {
-    newSmurf: []
+    name: '',
+    nickName: '',
+    position: '',
+    description: ''
   };
 
   handleChange = (e) => {
     this.setState({
-      newSmurf: [
-        //!This is very wrong but I don't know how to get specific input values assigned to each key
-        (this.name: e.target.value),
-        (this.nickName: e.target.value),
-        (this.position: e.target.value),
-        (this.description: e.target.value)
-      ]
+      ...this.state,
+      [e.target.name]: e.target.value
+
+      //   newSmurf: [
+      //     //!This is very wrong but I don't know how to get specific input values assigned to each key
+      //     (this.name: e.target.value),
+      //     (this.nickName: e.target.value),
+      //     (this.position: e.target.value),
+      //     (this.description: e.target.value)
+      //   ]
     });
   };
 
@@ -35,7 +41,7 @@ class AddForm extends React.Component {
               onChange={this.handleChange}
               name="name"
               id="name"
-              value={this.state.newSmurf}
+              value={this.state.newSmurf.name}
             />
             <br />
             <label htmlFor="name">Nickname:</label>
