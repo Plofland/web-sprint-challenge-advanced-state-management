@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getSmurf } from '../actions/index';
+import { postSmurf } from '../actions/index';
+
+const initialValues = {
+  name: '',
+  nickName: '',
+  position: '',
+  description: ''
+};
 
 class AddForm extends React.Component {
-  state = {
-    name: '',
-    nickName: '',
-    position: '',
-    description: ''
-  };
+  state = { initialValues };
 
   handleChange = (e) => {
     this.setState({
@@ -27,6 +29,9 @@ class AddForm extends React.Component {
 
   handleSubmit = (e) => {
     e.proventDefault();
+    const newSmurf = this.state;
+    this.props.postSmurf(newSmurf);
+    this.setState(initialValues);
   };
 
   render() {
@@ -41,7 +46,7 @@ class AddForm extends React.Component {
               onChange={this.handleChange}
               name="name"
               id="name"
-              value={this.state.newSmurf.name}
+              value={this.state.name}
             />
             <br />
             <label htmlFor="name">Nickname:</label>
@@ -50,7 +55,7 @@ class AddForm extends React.Component {
               onChange={this.handleChange}
               name="nickName"
               id="nickName"
-              value={this.state.newSmurf}
+              value={this.state.nickName}
             />
             <br />
             <label htmlFor="name">Position:</label>
@@ -59,7 +64,7 @@ class AddForm extends React.Component {
               onChange={this.handleChange}
               name="position"
               id="position"
-              value={this.state.newSmurf}
+              value={this.state.position}
             />
             <br />
             <label htmlFor="name">Description:</label>
@@ -68,7 +73,7 @@ class AddForm extends React.Component {
               onChange={this.handleChange}
               name="description"
               id="description"
-              value={this.state.newSmurf}
+              value={this.state.description}
             />
             <br />
           </div>
@@ -89,17 +94,13 @@ class AddForm extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    id: state.id,
-    name: state.name,
-    position: state.position,
-    nickname: state.nickname,
-    description: state.description,
+    smurf: [],
     isFetching: false,
     error: state.error
   };
 };
 
-export default connect(mapStateToProps, { getSmurf })(AddForm);
+export default connect(mapStateToProps, { postSmurf })(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.

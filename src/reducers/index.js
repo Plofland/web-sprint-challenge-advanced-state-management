@@ -8,11 +8,7 @@ import {
 } from '../actions/index';
 
 export const initialState = {
-  id: '',
-  name: '',
-  position: '',
-  nickname: '',
-  description: '',
+  smurfs: [],
   isLoading: false,
   error: ''
 };
@@ -27,11 +23,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_SUCCESS:
       return {
         ...state,
-        id: action.payload.data.id,
-        name: action.payload.data.name,
-        position: action.payload.data.position,
-        nickname: action.payload.data.nickname,
-        description: action.payload.data.description,
+        smurfs: action.payload,
         isLoading: false
       };
     case FETCH_FAIL:
@@ -48,11 +40,7 @@ const reducer = (state = initialState, action) => {
     case POST_SUCCESS:
       return {
         ...state,
-        id: action.payload.data.id,
-        name: action.payload.data.name,
-        position: action.payload.data.position,
-        nickname: action.payload.data.nickname,
-        description: action.payload.data.description,
+        smurfs: [...state.smurfs, payload],
         isLoading: false
       };
     case POST_FAIL:

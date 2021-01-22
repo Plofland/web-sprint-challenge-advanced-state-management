@@ -5,7 +5,7 @@ import Smurf from './Smurf';
 
 export class SmurfDisplay extends React.Component {
   componentDidMount() {
-    getSmurf();
+    this.props.getSmurf();
   }
 
   render() {

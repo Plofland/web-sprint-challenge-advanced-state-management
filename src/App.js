@@ -37,11 +37,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    id: state.id,
-    name: state.name,
-    position: state.position,
-    nickname: state.nickname,
-    description: state.description,
+    smurfs: [],
     isFetching: false,
     error: state.error
   };
