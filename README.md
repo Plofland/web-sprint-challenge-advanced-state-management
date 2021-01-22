@@ -125,8 +125,8 @@ Example of object created in Smurf DB:
 
 Your finished project must include all of the following requirements:
 
-- [ ] Plan and implement how you are going to manage your state for your application
-- [ ] You _must_ use Redux as your state management system
+- [x] Plan and implement how you are going to manage your state for your application
+- [x] You _must_ use Redux as your state management system
 - [ ] Complete the tasks listed within:
       _ `./reducers/index.js`
       _ `./actions/index.js`
@@ -150,5 +150,3 @@ After finishing your required elements, you can push your work further. These go
 Follow these steps for completing your project.
 
 - [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request**
-- [ ] Add your team lead as a reviewer on the pull-request
-- [ ] Your team lead will count the project as complete after receiving your pull-request
