@@ -1,24 +1,99 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getSmurf } from '../actions/index';
 
 class AddForm extends React.Component {
+  state = {
+    newSmurf: []
+  };
 
-    render() {
-        return(<section>
-            <h2>Add Smurf</h2>
-            <form>
-                <div className="form-group">
-                    <label htmlFor="name">Name:</label><br/>
-                    <input onChange={this.handleChange} name="name" id="name" />
-                </div>
+  handleChange = (e) => {
+    this.setState({
+      newSmurf: [
+        //!This is very wrong but I don't know how to get specific input values assigned to each key
+        (this.name: e.target.value),
+        (this.nickName: e.target.value),
+        (this.position: e.target.value),
+        (this.description: e.target.value)
+      ]
+    });
+  };
 
-                <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div>
-                <button>Submit Smurf</button>
-            </form>
-        </section>);
-    }
+  handleSubmit = (e) => {
+    e.proventDefault();
+  };
+
+  render() {
+    return (
+      <section>
+        <h2>Add Smurf</h2>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Name:</label>
+            <br />
+            <input
+              onChange={this.handleChange}
+              name="name"
+              id="name"
+              value={this.state.newSmurf}
+            />
+            <br />
+            <label htmlFor="name">Nickname:</label>
+            <br />
+            <input
+              onChange={this.handleChange}
+              name="nickName"
+              id="nickName"
+              value={this.state.newSmurf}
+            />
+            <br />
+            <label htmlFor="name">Position:</label>
+            <br />
+            <input
+              onChange={this.handleChange}
+              name="position"
+              id="position"
+              value={this.state.newSmurf}
+            />
+            <br />
+            <label htmlFor="name">Description:</label>
+            <br />
+            <input
+              onChange={this.handleChange}
+              name="description"
+              id="description"
+              value={this.state.newSmurf}
+            />
+            <br />
+          </div>
+
+          <div
+            data-testid="errorAlert"
+            className="alert alert-danger"
+            role="alert"
+          >
+            Error:{' '}
+          </div>
+          <button>Submit Smurf</button>
+        </form>
+      </section>
+    );
+  }
 }
 
-export default AddForm;
+const mapStateToProps = (state) => {
+  return {
+    id: state.id,
+    name: state.name,
+    position: state.position,
+    nickname: state.nickname,
+    description: state.description,
+    isFetching: false,
+    error: state.error
+  };
+};
+
+export default connect(mapStateToProps, { getSmurf })(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.

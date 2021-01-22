@@ -7,9 +7,9 @@ export const FETCH_FAIL = 'FETCH_FAIL';
 export const getSmurf = () => (dispatch) => {
   dispatch({ type: FETCH_START });
   axios
-    .get('url')
+    .get('http://localhost:3333/smurfs')
     .then((res) => {
-      console.log(res);
+      console.log('SMURF DATA', res);
       dispatch({ type: FETCH_SUCCESS, payload: res });
     })
     .catch((error) => {
