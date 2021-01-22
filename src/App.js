@@ -16,9 +16,9 @@ class App extends Component {
   //   });
   // }
 
-  // componentDidMount() {
-  //   getSmurf();
-  // }
+  componentDidMount() {
+    getSmurf();
+  }
 
   render() {
     return (

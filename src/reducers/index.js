@@ -1,4 +1,11 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from '../actions/index';
+import {
+  FETCH_START,
+  FETCH_SUCCESS,
+  FETCH_FAIL,
+  POST_START,
+  POST_SUCCESS,
+  POST_FAIL
+} from '../actions/index';
 
 export const initialState = {
   id: '',
@@ -6,7 +13,7 @@ export const initialState = {
   position: '',
   nickname: '',
   description: '',
-  isFetching: false,
+  isLoading: false,
   error: ''
 };
 
@@ -15,7 +22,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_START:
       return {
         ...state,
-        isFetching: true //PERSONAL STRETCH GOAL: set up a loading message
+        isLoading: true //PERSONAL STRETCH GOAL: set up a loading message
       };
     case FETCH_SUCCESS:
       return {
@@ -25,12 +32,33 @@ const reducer = (state = initialState, action) => {
         position: action.payload.data.position,
         nickname: action.payload.data.nickname,
         description: action.payload.data.description,
-        isFetching: false
+        isLoading: false
       };
     case FETCH_FAIL:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
+        error: action.payload
+      };
+    case POST_START:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case POST_SUCCESS:
+      return {
+        ...state,
+        id: action.payload.data.id,
+        name: action.payload.data.name,
+        position: action.payload.data.position,
+        nickname: action.payload.data.nickname,
+        description: action.payload.data.description,
+        isLoading: false
+      };
+    case POST_FAIL:
+      return {
+        ...state,
+        isLoading: false,
         error: action.payload
       };
     default:
