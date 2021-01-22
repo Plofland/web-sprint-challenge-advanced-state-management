@@ -5,17 +5,34 @@ export const initialState = {
   name: '',
   position: '',
   nickname: '',
-  description: ''
+  description: '',
+  isFetching: false,
+  error: ''
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_START:
-      return {};
+      return {
+        ...state,
+        isFetching: true //PERSONAL STRETCH GOAL: set up a loading message
+      };
     case FETCH_SUCCESS:
-      return {};
+      return {
+        ...state,
+        id: action.payload.data.id,
+        name: action.payload.data.name,
+        position: action.payload.data.position,
+        nickname: action.payload.data.nickname,
+        description: action.payload.data.description,
+        isFetching: false
+      };
     case FETCH_FAIL:
-      return {};
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      };
     default:
       return state;
   }
