@@ -16,14 +16,11 @@ class AddForm extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    // console.log(this.state);
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // console.log('CURRENT STATE', this.state);
     const newSmurf = this.state;
-    // console.log('NEW SMURF DATA BEING ADDED', newSmurf);
     this.props.postSmurf(newSmurf);
     this.setState(initialFormValues);
   };
@@ -77,7 +74,7 @@ class AddForm extends React.Component {
             className="alert alert-danger"
             role="alert"
           >
-            Error:{this.props.error.Error}
+            Error: {this.props.error.Error}
             {console.log(this.props.error)}
           </div>
           <button>Submit Smurf</button>
@@ -89,8 +86,6 @@ class AddForm extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    // smurfs: state.smurfs,
-    // isLoading: state.isLoading,
     error: state.error
   };
 };

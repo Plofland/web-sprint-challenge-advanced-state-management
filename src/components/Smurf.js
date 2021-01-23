@@ -1,17 +1,11 @@
 import React from 'react';
-// import { Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 class Smurf extends React.Component {
   render() {
     const { smurf } = this.props;
 
     return (
-      //   <div data-testid="smurf" className="card">
-      //     <h3>{this.props.smurf.name}</h3>
-      //     <p>Nickname: {this.props.smurf.nickName}</p>
-      //     <p>Position: {this.props.smurf.position}</p>
-      //     <p>Description: {this.props.smurf.description}</p>
-      //   </div>
       <div data-testid="smurf" className="card">
         <div className="card-body">
           <h3 className="card-title">{smurf.name}</h3>
