@@ -94,8 +94,8 @@ class AddForm extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    smurf: [],
-    isFetching: false,
+    smurfs: state.smurfs,
+    isLoading: state.isLoading,
     error: state.error
   };
 };

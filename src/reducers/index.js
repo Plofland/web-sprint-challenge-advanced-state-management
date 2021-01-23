@@ -40,7 +40,7 @@ const reducer = (state = initialState, action) => {
     case POST_SUCCESS:
       return {
         ...state,
-        smurfs: [...state.smurfs, payload],
+        smurfs: [...state.smurfs, action.payload],
         isLoading: false
       };
     case POST_FAIL:

@@ -21,10 +21,10 @@ export const getSmurf = () => (dispatch) => {
     });
 };
 
-export const postSmurf = () => (dispatch) => {
+export const postSmurf = (newSmurf) => (dispatch) => {
   dispatch({ type: POST_START });
   axios
-    .post('http://localhost:3333/smurfs')
+    .post('http://localhost:3333/smurfs', newSmurf)
     .then((res) => {
       console.log('POSTED SMURF DATA', res.data);
       dispatch({ type: POST_SUCCESS, payload: res.data });

@@ -11,9 +11,10 @@ export class SmurfDisplay extends React.Component {
   render() {
     return (
       <div className="smurfContainer">
-        {this.props.state.map((smurf) => {
-          <Smurf key={smurf.id} smurf={smurf} />;
-        })}
+        {/* {console.log('**State before being mapped**', this.props.smurfs)} */}
+        {this.props.smurfs.map((smurf) => (
+          <Smurf key={smurf.id} smurf={smurf} />
+        ))}
       </div>
     );
   }
@@ -21,12 +22,8 @@ export class SmurfDisplay extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    id: state.id,
-    name: state.name,
-    position: state.position,
-    nickname: state.nickname,
-    description: state.description,
-    isFetching: false,
+    smurfs: state.smurfs,
+    isLoading: state.isLoading,
     error: state.error
   };
 };
