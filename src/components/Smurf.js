@@ -13,10 +13,10 @@ class Smurf extends React.Component {
       //   </div>
       <div data-testid="smurf" className="card">
         <div className="card-body">
-          <h3 className="card-title">{this.props.smurf.name}</h3>
-          <h6 className="card-subtitle">{this.props.smurf.nickname}</h6>
-          <h6 className="card-subtitle">{this.props.smurf.position}</h6>
-          <p className="card-text">{this.props.smurf.description}</p>
+          <h3 className="card-title">{smurf.name}</h3>
+          <h6 className="card-subtitle">{smurf.nickname}</h6>
+          <h6 className="card-subtitle">{smurf.position}</h6>
+          <p className="card-text">{smurf.description}</p>
         </div>
       </div>
     );

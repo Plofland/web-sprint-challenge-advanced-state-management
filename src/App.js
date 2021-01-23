@@ -16,15 +16,16 @@ class App extends Component {
   //   });
   // }
 
-  componentDidMount() {
-    getSmurf();
-  }
+  // componentDidMount() {
+  //   getSmurf();
+  // }
 
   render() {
     return (
       <div className="App">
         <nav className="navbar navbar-dark bg-primary">
-          <a className="navbar-brand">Smurf Village Database</a>
+          {/* <a className="navbar-brand">Smurf Village Database</a> Why was this an anchor tag? */}
+          <h2 className="headliner">Smurf Village Database</h2>
         </nav>
         <main>
           <AddForm />

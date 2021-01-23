@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { postSmurf } from '../actions/index';
 
-const initialValues = {
+const initialFormValues = {
   name: '',
   nickName: '',
   position: '',
@@ -10,28 +10,22 @@ const initialValues = {
 };
 
 class AddForm extends React.Component {
-  state = { initialValues };
+  state = { initialFormValues };
 
   handleChange = (e) => {
     this.setState({
-      ...this.state,
       [e.target.name]: e.target.value
-
-      //   newSmurf: [
-      //     //!This is very wrong but I don't know how to get specific input values assigned to each key
-      //     (this.name: e.target.value),
-      //     (this.nickName: e.target.value),
-      //     (this.position: e.target.value),
-      //     (this.description: e.target.value)
-      //   ]
     });
+    // console.log(this.state);
   };
 
   handleSubmit = (e) => {
     e.proventDefault();
+    console.log('CURRENT STATE', this.state);
     const newSmurf = this.state;
+    console.log('NEW SMURF DATA', newSmurf);
     this.props.postSmurf(newSmurf);
-    this.setState(initialValues);
+    this.setState(initialFormValues);
   };
 
   render() {
@@ -83,7 +77,8 @@ class AddForm extends React.Component {
             className="alert alert-danger"
             role="alert"
           >
-            Error:{' '}
+            Error:{this.props.error.Error}
+            {console.log(this.props.error)}
           </div>
           <button>Submit Smurf</button>
         </form>
@@ -94,8 +89,8 @@ class AddForm extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    smurfs: state.smurfs,
-    isLoading: state.isLoading,
+    // smurfs: state.smurfs,
+    // isLoading: state.isLoading,
     error: state.error
   };
 };

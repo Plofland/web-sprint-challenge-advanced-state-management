@@ -2,7 +2,7 @@ import {
   FETCH_START,
   FETCH_SUCCESS,
   FETCH_FAIL,
-  POST_START,
+  // POST_START,
   POST_SUCCESS,
   POST_FAIL
 } from '../actions/index';
@@ -32,11 +32,11 @@ const reducer = (state = initialState, action) => {
         isLoading: false,
         error: action.payload
       };
-    case POST_START:
-      return {
-        ...state,
-        isLoading: true
-      };
+    // case POST_START:
+    //   return {
+    //     ...state,
+    //     isLoading: true
+    //   };
     case POST_SUCCESS:
       return {
         ...state,
