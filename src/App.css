@@ -1,6 +1,9 @@
-html, body, #root, .App {
-  height:100%;
-  background: #007bff!important;
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  background: #007bff !important;
 }
 
 main {
@@ -9,8 +12,9 @@ main {
   margin: 2em auto;
 }
 
-input, textarea {
-  width:100%;
+input,
+textarea {
+  width: 100%;
 }
 
 section {
@@ -19,24 +23,33 @@ section {
 }
 
 .display {
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
+h2 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .card {
-  /* height: 100%;
-  min-width:250px; */
+  height: 100%;
+  min-width: 250px;
   flex: 0 1 24%;
+  /* line-height: 1rem; */
 }
 
 .card-title {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-
+.card-subtitle {
+  line-height: 2rem;
+}
 
 @media (max-width: 800px) {
   .flex-container {

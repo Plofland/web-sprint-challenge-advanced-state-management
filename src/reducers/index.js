@@ -1,14 +1,57 @@
+import {
+  FETCH_START,
+  FETCH_SUCCESS,
+  FETCH_FAIL,
+  POST_SUCCESS,
+  POST_FAIL
+} from '../actions/index';
 
 export const initialState = {
-}
+  smurfs: [],
+  isLoading: false,
+  error: ''
+};
 
-const reducer = ()=>{
-}
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_START:
+      return {
+        ...state,
+        isLoading: true //PERSONAL STRETCH GOAL: set up a loading message
+      };
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        isLoading: false
+      };
+    case FETCH_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      };
+    case POST_SUCCESS:
+      return {
+        ...state,
+        smurfs: [...state.smurfs, action.payload],
+        isLoading: false
+      };
+    case POST_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      };
+    default:
+      return state;
+  }
+};
 
 export default reducer;
 
 //Task List:
-//1. Add in the initialState needed to hold: 
+//1. Add in the initialState needed to hold:
 //      - an array of smurfs
 //      - a boolean indicating if the app is loading
 //      - error text

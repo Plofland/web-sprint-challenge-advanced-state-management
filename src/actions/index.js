@@ -1,7 +1,41 @@
 import axios from 'axios';
 
+export const FETCH_START = 'FETCH_START';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_FAIL = 'FETCH_FAIL';
+export const POST_SUCCESS = 'POST_SUCCESS';
+export const POST_FAIL = 'POST_FAIL';
+
+export const getSmurf = () => (dispatch) => {
+  dispatch({ type: FETCH_START });
+  axios
+    .get('http://localhost:3333/smurfs')
+    .then((res) => {
+      dispatch({ type: FETCH_SUCCESS, payload: res.data });
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch({ type: FETCH_FAIL, payload: error });
+    });
+};
+
+export const postSmurf = (newSmurf) => (dispatch) => {
+  axios
+    .post('http://localhost:3333/smurfs', newSmurf)
+    .then((res) => {
+      console.log('POSTED SMURF DATA', res.data);
+      getSmurf();
+      dispatch({ type: FETCH_SUCCESS, payload: res.data });
+    })
+    .catch((error) => {
+      console.log(error.response.data);
+
+      dispatch({ type: POST_FAIL, payload: error.response.data });
+    });
+};
+
 //Task List:
-//1. Add fetch smurfs action: 
+//1. Add fetch smurfs action:
 //              - fetch and return initial list of smurfs
 //              - dispatch actions that indicate if we are waiting for a server response
 //              - dispatch an error text action if an error is returned from the server
