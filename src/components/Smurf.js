@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Card } from 'react-bootstrap';
 
 class Smurf extends React.Component {
   render() {

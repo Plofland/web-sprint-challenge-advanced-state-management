@@ -4,13 +4,13 @@ import { postSmurf } from '../actions/index';
 
 const initialFormValues = {
   name: '',
-  nickName: '',
+  nickname: '',
   position: '',
   description: ''
 };
 
 class AddForm extends React.Component {
-  state = { initialFormValues };
+  state = initialFormValues;
 
   handleChange = (e) => {
     this.setState({
@@ -20,10 +20,10 @@ class AddForm extends React.Component {
   };
 
   handleSubmit = (e) => {
-    e.proventDefault();
-    console.log('CURRENT STATE', this.state);
+    e.preventDefault();
+    // console.log('CURRENT STATE', this.state);
     const newSmurf = this.state;
-    console.log('NEW SMURF DATA', newSmurf);
+    // console.log('NEW SMURF DATA BEING ADDED', newSmurf);
     this.props.postSmurf(newSmurf);
     this.setState(initialFormValues);
   };
@@ -47,8 +47,8 @@ class AddForm extends React.Component {
             <br />
             <input
               onChange={this.handleChange}
-              name="nickName"
-              id="nickName"
+              name="nickname"
+              id="nickname"
               value={this.state.nickName}
             />
             <br />

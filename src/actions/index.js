@@ -27,10 +27,12 @@ export const postSmurf = (newSmurf) => (dispatch) => {
     .post('http://localhost:3333/smurfs', newSmurf)
     .then((res) => {
       console.log('POSTED SMURF DATA', res.data);
-      dispatch({ type: POST_SUCCESS, payload: res.data });
+      getSmurf();
+      dispatch({ type: FETCH_SUCCESS, payload: res.data });
     })
     .catch((error) => {
-      console.log(error.message);
+      console.log(error.response.data);
+
       dispatch({ type: POST_FAIL, payload: error.message });
     });
 };

@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar navbar-dark bg-primary">
-          {/* <a className="navbar-brand">Smurf Village Database</a> Why was this an anchor tag? */}
+          {/* <a href="localhost:3000" className="navbar-brand">Smurf Village Database</a>  */}
           <h2 className="headliner">Smurf Village Database</h2>
         </nav>
         <main>

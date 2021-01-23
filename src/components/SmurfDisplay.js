@@ -11,7 +11,6 @@ export class SmurfDisplay extends React.Component {
   render() {
     return (
       <div className="smurfContainer">
-        {/* {console.log('**State before being mapped**', this.props.smurfs)} */}
         {this.props.smurfs.map((smurf) => (
           <Smurf key={smurf.id} smurf={smurf} />
         ))}
